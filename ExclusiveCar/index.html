@@ -233,13 +233,13 @@
 
 <!-- Contactinformatie Sectie -->
 <section class="intro">
-    <div class="contact-container">
+    <div>
         <h2>Contacteer Ons</h2>
         <p>Heeft u vragen of wilt u meer informatie? Neem gerust contact met ons op via de onderstaande gegevens.</p>
-        <ul class="contact-info">
+        <ul>
             <li><i class="fas fa-map-marker-alt"></i> Adres: Moeskampweg 17b, 5222 AW Den Bosch</li>
             <li><i class="fas fa-phone"></i> Telefoon: (073)6-19280407</li>
-            <li><i class="fas fa-envelope"></i> Email: info@exclusivecars.nl</li>
+            <li><i class="fas fa-envelope"></i> Email: info exclusivecars.nl</li>
         </ul>
         <a href="contact.html" class="contact-btn">Contact ons</a>
     </div>
@@ -300,6 +300,36 @@
       </div>
   </div>
 </footer>
+
+<!-- cookies zodra je de website betreed -->
+<div id="cookie-consent" class="cookie-consent">
+    <p>Deze website maakt gebruik van cookies om je de best mogelijke ervaring te bieden. <a href="privacy.html">Meer informatie</a></p>
+    <button id="accept-cookies-btn" class="accept-cookies-btn">Accepteren</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+
+    acceptCookiesBtn.addEventListener('click', function() {
+        cookieConsent.style.display = 'none';
+        // Hier kun je eventueel code toevoegen om cookies te plaatsen of andere acties te ondernemen
+    });
+
+    // Controleren of de gebruiker al eerder cookies heeft geaccepteerd
+    if (localStorage.getItem('cookieAccepted') === 'true') {
+        cookieConsent.style.display = 'none';
+    } else {
+        cookieConsent.style.display = 'block';
+    }
+    
+    // Functie om de acceptatie op te slaan zodra de gebruiker op 'Accepteren' klikt
+    acceptCookiesBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieAccepted', 'true');
+    });
+});
+</script>
 </body>
 </html>
 
